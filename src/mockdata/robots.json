@@ -1,0 +1,73 @@
+[
+    
+    {
+        "id": 1,
+        "name": "John Smith",
+        "email": "john.smith@gmail.com",
+        "username": "John Smith",
+        "phone": "123-456-7890",
+        "website": "http://example.com",
+        "company": {
+            "name": "John Smith LLC",
+            "catchPhrase": "John Smith catchPhrase",
+            "bs": "John Smith bs"
+        },
+        "address": {
+            "street": "John Smith street",
+            "suite": "John Smith suite",
+            "city": "John Smith city",
+            "zipcode": "John Smith zipcode",
+            "geo": {
+                "lat":"-38",
+                "lng":"57"
+            }
+        }
+    },
+    {
+        "id": 2,
+        "name": "HanMeimei",
+        "email": "john.smith@gmail.com",
+        "username": "HanMeimei",
+        "phone": "123-456-7890",
+        "website": "http://example.com",
+        "company": {
+            "name": "HanMeimei LLC",
+            "catchPhrase": "HanMeimei catchPhrase",
+            "bs": "HanMeimei bs"
+        },
+        "address": {
+            "street": "HanMeimei street",
+            "suite": "HanMeimei suite",
+            "city": "HanMeimei city",
+            "zipcode": "HanMeimei zipcode",
+            "geo": {
+                "lat":"-38",
+                "lng":"57"
+            }
+        }
+    },
+    {
+    "id": 3,
+    "name": "LiLei",
+    "email": "john.smith@gmail.com",
+    "username": "LiLei",
+    "phone": "123-456-7890",
+    "website": "http://example.com",
+    "company": {
+        "name": "LiLei LLC",
+        "catchPhrase": "LiLei catchPhrase",
+        "bs": "LiLei bs"
+    },
+    "address": {
+        "street": "LiLei street",
+        "suite": "LiLei suite",
+        "city": "LiLei city",
+        "zipcode": "LiLei zipcode",
+        "geo": {
+            "lat":"-38",
+            "lng":"57"
+        }
+    }
+    }
+    
+]
