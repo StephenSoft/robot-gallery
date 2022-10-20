@@ -7,7 +7,7 @@ interface RobotProps{
 }
 const Robot : React.FC<RobotProps> = ({id, name, email}) => {   
     return <li>
-        <img src={`https://robohash.org/${id}`} alt="robot" />
+        <img src={`https://robohash.org/${Math.random()}`} alt="robot" />
         <h2>{name}</h2>
         <p>{email}</p>
     </li>
