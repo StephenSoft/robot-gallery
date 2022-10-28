@@ -1,4 +1,4 @@
-import React, { useState }from 'react';
+import React, { useState, useEffect }from 'react';
 import logo from './assets/images/logo.svg';
 // import robots from './mockdata/robots.json'
 import Robot from './components/Robot';
@@ -14,6 +14,17 @@ interface State {
 const App : React.FC = () => {
 
   const [count, setCount] = useState<number>(0)
+  const [robotGallery, setRobotGallery] = useState<any>([])
+  // const [robotGallery, setrobotGallery] 
+  useEffect(() =>{
+    document.title = `click ${count} times`
+  }, [count])
+
+  useEffect(()=>{
+    fetch("https://jsonplaceholder.typicode.com/users")
+    .then(response => response.json())
+    .then(data => setRobotGallery(data))
+  },[])
 
     return (
       <div className={styles.app}>
@@ -24,9 +35,9 @@ const App : React.FC = () => {
         <button onClick={()=> {setCount(count + 1)}}>click</button>
         <span>Count: {count}</span>
         <ShoppingCar/>
-        {/* <div className={styles.robotList}> 
-          {this.state.robotGallery.map( r => <Robot id={r.id} name={r.name} email={r.email}/>)}
-        </div> */}
+        <div className={styles.robotList}> 
+          {robotGallery.map( r => <Robot id={r.id} name={r.name} email={r.email}/>)}
+        </div>
       </div>
     );
   }
