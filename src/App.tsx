@@ -5,13 +5,15 @@ import Robot from './components/Robot';
 import ShoppingCar from './components/ShoppingCar';
 import styles from './App.module.css';
 
-interface Props {}
+interface Props {
+  author: string;
+}
 interface State {
   robotGallery: any[];
   count: number;
 }
 
-const App : React.FC = () => {
+const App : React.FC<Props> = (props) => {
 
   const [count, setCount] = useState<number>(0)
   const [robotGallery, setRobotGallery] = useState<any>([])
@@ -33,9 +35,10 @@ const App : React.FC = () => {
       } catch (e : any) {
         setError(e.message);
       }
+      setLoading(false)
+
     };
     fetchData();
-    setLoading(false)
   },[])
 
     return (
@@ -44,6 +47,7 @@ const App : React.FC = () => {
           <img src={logo} className={styles.appLogo} alt="Logo"/>
           <h1>狂拽酷炫叼炸天的名字超级无敌长的的罗伯特Online购物平台</h1>
         </div>
+        <h2>{props.author}</h2>
         <button onClick={()=> {setCount(count + 1)}}>click</button>
         <span>Count: {count}</span>
         <ShoppingCar/>

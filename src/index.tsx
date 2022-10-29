@@ -7,9 +7,11 @@ import reportWebVitals from './reportWebVitals';
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
 );
+
+const author = "StephenZzz"
 root.render(
   <React.StrictMode>
-    <App />
+    <App author={author}/>
   </React.StrictMode>
 );
 
