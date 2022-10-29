@@ -8,10 +8,18 @@ const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
 );
 
+const appDefaultValue = {
+  author: 'StephenZzz'
+}
+
+export const appContext = React.createContext(appDefaultValue)
+
 const author = "StephenZzz"
 root.render(
   <React.StrictMode>
-    <App author={author}/>
+    <appContext.Provider value={appDefaultValue}>
+      <App author={author}/>
+    </appContext.Provider>
   </React.StrictMode>
 );
 
