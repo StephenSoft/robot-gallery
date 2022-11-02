@@ -14,11 +14,10 @@ const appDefaultValue = {
 
 export const appContext = React.createContext(appDefaultValue)
 
-const author = "StephenZzz"
 root.render(
   <React.StrictMode>
     <appContext.Provider value={appDefaultValue}>
-      <App author={author}/>
+      <App />
     </appContext.Provider>
   </React.StrictMode>
 );

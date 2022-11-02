@@ -1,19 +1,17 @@
-import React, { useState, useEffect }from 'react';
+import React, { useState, useContext, useEffect }from 'react';
 import logo from './assets/images/logo.svg';
 // import robots from './mockdata/robots.json'
 import Robot from './components/Robot';
 import ShoppingCar from './components/ShoppingCar';
 import styles from './App.module.css';
+import { appContext } from './index';
 
-interface Props {
-  author: string;
-}
 interface State {
   robotGallery: any[];
   count: number;
 }
 
-const App : React.FC<Props> = (props) => {
+const App : React.FC = (props) => {
 
   const [count, setCount] = useState<number>(0)
   const [robotGallery, setRobotGallery] = useState<any>([])
@@ -41,13 +39,15 @@ const App : React.FC<Props> = (props) => {
     fetchData();
   },[])
 
+  const value = useContext(appContext);
+
     return (
       <div className={styles.app}>
         <div className={styles.appHeader}>
           <img src={logo} className={styles.appLogo} alt="Logo"/>
           <h1>狂拽酷炫叼炸天的名字超级无敌长的的罗伯特Online购物平台</h1>
         </div>
-        <h2>{props.author}</h2>
+        <h2>{value.author}</h2>
         <button onClick={()=> {setCount(count + 1)}}>click</button>
         <span>Count: {count}</span>
         <ShoppingCar/>
