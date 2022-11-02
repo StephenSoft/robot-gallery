@@ -3,22 +3,18 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import { AppStateProvider } from './AppState';
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
 );
 
-const appDefaultValue = {
-  author: 'StephenZzz'
-}
-
-export const appContext = React.createContext(appDefaultValue)
 
 root.render(
   <React.StrictMode>
-    <appContext.Provider value={appDefaultValue}>
+    <AppStateProvider>
       <App />
-    </appContext.Provider>
+    </AppStateProvider>
   </React.StrictMode>
 );
 

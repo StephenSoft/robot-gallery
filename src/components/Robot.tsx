@@ -1,7 +1,7 @@
 import React from 'react';
 import styles from './Robot.module.css';
 import { useContext } from 'react';
-import { appContext } from '../index';
+import { appContext } from '../AppState';
 
 interface RobotProps{
     id: number;

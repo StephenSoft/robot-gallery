@@ -4,12 +4,12 @@ import logo from './assets/images/logo.svg';
 import Robot from './components/Robot';
 import ShoppingCar from './components/ShoppingCar';
 import styles from './App.module.css';
-import { appContext } from './index';
+import { appContext } from './AppState';
 
-interface State {
-  robotGallery: any[];
-  count: number;
-}
+// interface State {
+//   robotGallery: any[];
+//   count: number;
+// }
 
 const App : React.FC = (props) => {
 
@@ -17,6 +17,7 @@ const App : React.FC = (props) => {
   const [robotGallery, setRobotGallery] = useState<any>([])
   const [loading, setLoading] = useState<boolean>(false)
   const [error, setError] = useState<string>()
+  const value = useContext(appContext);
 
   useEffect(() =>{
     document.title = `click ${count} times`
@@ -39,29 +40,27 @@ const App : React.FC = (props) => {
     fetchData();
   },[])
 
-  const value = useContext(appContext);
-
-    return (
-      <div className={styles.app}>
-        <div className={styles.appHeader}>
-          <img src={logo} className={styles.appLogo} alt="Logo"/>
-          <h1>狂拽酷炫叼炸天的名字超级无敌长的的罗伯特Online购物平台</h1>
-        </div>
-        <h2>{value.author}</h2>
-        <button onClick={()=> {setCount(count + 1)}}>click</button>
-        <span>Count: {count}</span>
-        <ShoppingCar/>
-        {(!error || error !== "") && <div>网站出错：{error}</div>}
-        { !loading ? 
-        <div className={styles.robotList}> 
-          {robotGallery.map( r => <Robot id={r.id} name={r.name} email={r.email}/>)}
-        </div>
-        :
-        (<h2>加载中 </h2>)
-        }
-
+  return (
+    <div className={styles.app}>
+      <div className={styles.appHeader}>
+        <img src={logo} className={styles.appLogo} alt="Logo"/>
+        <h1>狂拽酷炫叼炸天的名字超级无敌长的的罗伯特Online购物平台</h1>
       </div>
-    );
+      <h2>{value.author}</h2>
+      <button onClick={()=> {setCount(count + 1)}}>click</button>
+      <span>Count: {count}</span>
+      <ShoppingCar/>
+      {(!error || error !== "") && <div>网站出错：{error}</div>}
+      { !loading ? 
+      <div className={styles.robotList}> 
+        {robotGallery.map( r => <Robot id={r.id} name={r.name} email={r.email}/>)}
+      </div>
+      :
+      (<h2>加载中 </h2>)
+      }
+
+    </div>
+  );
   }
 
 export default App;
